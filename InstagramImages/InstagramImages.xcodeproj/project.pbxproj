@@ -17,6 +17,7 @@
 		7B406FB41A5EF225008E4A30 /* InstagramImagesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B406FB31A5EF225008E4A30 /* InstagramImagesTests.m */; };
 		7B406FC01A5EF7E5008E4A30 /* LoginInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B406FBF1A5EF7E5008E4A30 /* LoginInstagramViewController.m */; };
 		7B406FC31A5EFA07008E4A30 /* NSDictionary+UrlEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B406FC21A5EFA07008E4A30 /* NSDictionary+UrlEncoding.m */; };
+		7BC926A21A631E94007214CB /* ImageDownloaded.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC926A11A631E94007214CB /* ImageDownloaded.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		7B406FBF1A5EF7E5008E4A30 /* LoginInstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginInstagramViewController.m; sourceTree = "<group>"; };
 		7B406FC11A5EFA07008E4A30 /* NSDictionary+UrlEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+UrlEncoding.h"; sourceTree = "<group>"; };
 		7B406FC21A5EFA07008E4A30 /* NSDictionary+UrlEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+UrlEncoding.m"; sourceTree = "<group>"; };
+		7BC926A01A631E94007214CB /* ImageDownloaded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloaded.h; sourceTree = "<group>"; };
+		7BC926A11A631E94007214CB /* ImageDownloaded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloaded.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 				7B406FBF1A5EF7E5008E4A30 /* LoginInstagramViewController.m */,
 				7B004AB51A60490700541739 /* WebServiceHandler.h */,
 				7B004AB61A60490700541739 /* WebServiceHandler.m */,
+				7BC926A01A631E94007214CB /* ImageDownloaded.h */,
+				7BC926A11A631E94007214CB /* ImageDownloaded.m */,
 				7B406FA11A5EF225008E4A30 /* Main.storyboard */,
 				7B406FC41A5EFA10008E4A30 /* Third Party Software */,
 				7B406FA41A5EF225008E4A30 /* Images.xcassets */,
@@ -247,6 +252,7 @@
 				7B406FC31A5EFA07008E4A30 /* NSDictionary+UrlEncoding.m in Sources */,
 				7B004AB71A60490700541739 /* WebServiceHandler.m in Sources */,
 				7B406F9D1A5EF225008E4A30 /* AppDelegate.m in Sources */,
+				7BC926A21A631E94007214CB /* ImageDownloaded.m in Sources */,
 				7B406F9A1A5EF225008E4A30 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
