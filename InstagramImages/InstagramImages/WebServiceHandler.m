@@ -24,14 +24,15 @@ static WebServiceHandler *sharedInstance;
 }
 
 -(void)sessionUsingUrl:(NSURL*)url{
+    __weak WebServiceHandler *weakSelf = self;
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionTask *task = [session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         //in case there's no internet or any kind of other error the connection failed, or no response, or no data to work with
         if (error || response==nil || data.length==0) {
-            [[self delegateVC] didFailDownloadingJson:@"Error: Probably no internet"];
+            [[weakSelf delegateVC] didFailDownloadingJson:@"Error: Probably no internet"];
         }else{
             NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:NULL];
-            [[self delegateVC] didFinishDownloadingJson:json];
+            [[weakSelf delegateVC] didFinishDownloadingJson:json];
         }
     }];
     [task resume];

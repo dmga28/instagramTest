@@ -28,8 +28,8 @@ __weak LoginInstagramViewController* weakSelf;
 -(void)setImagesSource:(NSArray *)imagesSource{
     dispatch_async(dispatch_get_main_queue(), ^{
         _imagesSource = imagesSource;
-        [self setSelectedCellIndex:-1];//no cell is selected at the moment
-        [[self mainCollectionView] reloadData];
+        [weakSelf setSelectedCellIndex:-1];//no cell is selected at the moment
+        [[weakSelf mainCollectionView] reloadData];
     });
 }
 
@@ -66,7 +66,7 @@ __weak LoginInstagramViewController* weakSelf;
 -(void)didFinishDownloadingJson:(NSDictionary*)json{
     NSLog(@"json:\n%@",json);
     if ([json[@"meta"][@"code"] integerValue]!=200) {
-        [weakSelf showAlertMessage:@"Error: status code is not ok"];
+        [self showAlertMessage:@"Error: status code is not ok"];
         return;
     }
     NSMutableArray* dictImages = [NSMutableArray new];
@@ -80,7 +80,7 @@ __weak LoginInstagramViewController* weakSelf;
         }
         orderSize++;
     }
-    [weakSelf setImagesSource:dictImages];
+    [self setImagesSource:dictImages];
 }
 
 -(void)didFailDownloadingJson:(NSString*)error{
@@ -113,9 +113,14 @@ __weak LoginInstagramViewController* weakSelf;
     //we ensure the array doesn't get out of bounds with "%" so if infinite scroll is implemented there's always content to display
     NSInteger index = [indexPath row];
     NSMutableDictionary* dictImage = [[self imagesSource] objectAtIndex:index%[[self imagesSource] count]];
-    CGFloat minSize = 50;
-    CGFloat factor = index==[self selectedCellIndex]?0.5:0.25; //using 0.5 and 0.25 because images are too big
-    return CGSizeMake(MAX([[dictImage objectForKey:@"width"] integerValue]*factor,minSize), MAX([[dictImage objectForKey:@"height"] integerValue]*factor,minSize));
+    if (index==[self selectedCellIndex]) {
+        //320 is a sutable big size
+        return CGSizeMake(320, 320);
+    }else{
+        CGFloat minSize = 50;
+        CGFloat factor = 0.25; //0.25 because images are too big
+        return CGSizeMake(MAX([[dictImage objectForKey:@"width"] integerValue]*factor,minSize), MAX([[dictImage objectForKey:@"height"] integerValue]*factor,minSize));
+    }
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
