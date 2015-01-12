@@ -137,6 +137,8 @@ __weak LoginInstagramViewController* weakSelf;
     }else{
         [self setSelectedCellIndex:[indexPath row]];
     }
+    //do animation
+    [collectionView setCollectionViewLayout:[[UICollectionViewFlowLayout alloc] init] animated:YES];
     [[[self mainCollectionView] collectionViewLayout] invalidateLayout];
 }
 
